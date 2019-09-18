@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            .information{
+                position: absolute;
+                left:50%;
+                transform: translate(-50%,-50%);
+                border:10px solid white;
+                background-color:white;
+                color:black;
+                padding:10px;
+                width:880px;
+                font-size:25px;
+                top: 11%;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                text-align:center;
+            }
+            .centerize{
+                position: absolute;
+                left:50%;
+                top:50%;
+                transform: translate(-50%,-50%);
+                margin:0px;
+                border:10px solid white;
+                background-color:white;
+            }
+            body{
+                background-color:tomato;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="centerize">
+            <img id="image" src="./image.jpeg" width="900px" />
+        </div>
+
+        <script src="./fastcrop.js"></script>
+        <script>
+            var element = document.getElementById("image");
+            document.getElementById("image").onclick = function(){
+                    fastCrop.params({
+                        width:700,
+                        height:300,
+                        multiply:1,
+                        changeBy: 80,
+                        showCropped: true,
+                        image:element,
+                        type: 'jpg',
+                        getBase64:function(base64){
+                            console.log(base64);
+                        },
+                    });
+                
+        }
+        </script>
+    </body>
+</html>
